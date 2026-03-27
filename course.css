@@ -1,3 +1,4 @@
+
 .content.box {
   margin-top: 40px;
 }
@@ -355,7 +356,7 @@ max-height: 900px; /* large enough */
 .accord > li button{color: #fff;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 100%;text-align: left;
     align-items: center;    padding:18px;}
 .accord > li button div{    display: flex;
     gap: 19px;    font-size: 16px;
@@ -597,12 +598,12 @@ max-height: 900px; /* large enough */
     border-radius:16px;
     position: relative}
 .curriculum > ul > li.active{    border: 1px solid #efb83145;}
-.curriculum > ul > li > button {    display: flex;
+/* .curriculum > ul > li > button {    display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: center;
     color: #fff;
-    text-align: left;}
+    text-align: left;} */
 .curriculum > ul > li:before{       content: '';
     display: block;
     height: 13px;
@@ -650,7 +651,7 @@ max-height: 900px; /* large enough */
     font-weight: bold;
     padding: 20px 0 16px 0;}
 .curriculum > ul > li > div > div > ul{    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
     gap: 12px;}
 .curriculum > ul > li > div > div > ul li{    display: flex;
     gap: 8px;}
@@ -869,8 +870,7 @@ max-height: 900px; /* large enough */
 
 .measurable{}
 .measurable h5,.real_one h5,.real_two h5{    font-size: 25px;
-    font-weight: normal;
-    line-height: 16px;display: flex;
+    font-weight: normal;display: flex;
     gap: 16px;
 }
 .measurable h5 i,.real_one h5 i,.real_two h5 i{ font-weight: 100;   color: #f6b623;}
@@ -1064,7 +1064,7 @@ max-height: 900px; /* large enough */
     background: #ffffff0a;
     border-radius: 25px;
     padding: 25px;
-    display: grid;
+    display: block;
     gap: 18px;}
 .refund h2{     color: #ff3d3d;
     font-size: 15px;
@@ -1075,7 +1075,7 @@ max-height: 900px; /* large enough */
     font-size: 23px;
     font-weight: normal;}
 .refund p{    font-size: 13px;
-    color: #ffffff94;}
+    color: #ffffff94;padding: 10px 0 15px 0;}
 .refund span{    font-size: 13px;}
 
 
@@ -1442,32 +1442,46 @@ aside.fixed {
 }
 
 @media (max-width: 650px) {
-.page { padding: 0 10px }
+.page { padding: 0 }
     .instructor > div {
-    min-height: 721px;
+    min-height: 600px;
 }
     .instructor > div > span {
         left: auto;
         width: 100%;
-        background-size: 663px;
-        background-position: -47px -44px;
+        background-position: -38px -23px;
     }
-        .instructor > div > div {
-        right: 0;
-        top: 435px;
-        left: 0;
-        border-radius: 25px;
+       .instructor > div > div {
+        right: -2px;
+        top: 285px;
+        left: 0px;
+        border-radius: 0 0 25px 25px;
         bottom: 0;
     }
         .instructor > div > ul {
         bottom: -18px;
         right: 25px;
     }
+
 }
 
 @media (max-width:600px) {
     .cta > div img,.cta > button span > label,.cta > div  {display: none;}
 .enrollButton {flex: 1;}
+    .box {
+        padding: 0 10px;
+    }
+        .content.box {
+        margin-top: 10px;
+    }
+
+.sol_3 ul,.soln,.wif > .one > ul,.format > div,.certificate > .wim,.outcomes > div,
+.pricing > div, .getEnroll > div {grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));gap: 8px;}
+.winf ul {grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));}
+
+.real_one ul li span {font-size: 11px;}
+.real_one ul li {gap: 5px;}
+
 }
 
 @media (max-width: 480px) {
