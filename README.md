@@ -1,2 +1,1 @@
-# rewiregroup.github.io
-Rewire Group static website
+# Hello World!
