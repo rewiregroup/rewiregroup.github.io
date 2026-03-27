@@ -1323,7 +1323,7 @@ aside.fixed {padding-top: 97px;}
         bottom: 7px;
         gap: 0;
         padding: 13px 48px 15px 11px;
-        display: none;
+        display: none;max-height: 370px;
         -webkit-backdrop-filter: saturate(180%) blur(20px);
         backdrop-filter: saturate(180%) blur(20px);}
 .header{position: relative;}
