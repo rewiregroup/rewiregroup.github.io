@@ -150,14 +150,7 @@ h4 {
     border-radius: 7px;
     font-size: 14px;
 }
-.btn.outline2 {align-items: center;
-        background: #000000;
-    color: #fbfbff;
-    border: 1px solid #efb83145;
-    border-radius: 7px;
-    font-size: 14px;
-    padding: 16px;
-}
+
 
 .btn:hover {
  background: #3745ff;

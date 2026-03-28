@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You - Kalki Corporation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0f;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 2rem 1rem 3rem;
+    position: relative;
+  }
+
+  /* Ambient glow orbs */
+  .orb { position: absolute; border-radius: 50%; pointer-events: none; }
+  .orb-1 { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); filter: blur(120px); background: hsl(270 60% 52% / 0.12); }
+  .orb-2 { width: 300px; height: 300px; top: 25%; left: 25%; filter: blur(100px); background: hsl(42 92% 45% / 0.08); }
+  .orb-3 { width: 250px; height: 250px; bottom: 25%; right: 25%; filter: blur(80px); background: hsl(270 60% 52% / 0.06); }
+
+  /* Grid */
+  .grid-bg {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+    background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .container { position: relative; z-index: 10; width: 100%; max-width: 480px; display: flex; flex-direction: column; align-items: center; }
+
+  /* Back button */
+  .back-btn {
+    align-self: flex-start; display: flex; align-items: center; gap: 8px;
+    background: none; border: none; cursor: pointer;
+    color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    transition: color 0.3s; margin-bottom: 1.5rem;
+    animation: fadeSlideLeft 0.5s 0.2s both;
+  }
+  .back-btn:hover { color: rgba(255,255,255,0.85); }
+  .back-btn:hover .arrow { transform: translateX(-3px); }
+  .arrow { transition: transform 0.3s; width: 16px; height: 16px; }
+
+  /* Logo */
+  .logo-wrap {
+    position: relative; margin-bottom: 2rem;
+    animation: scaleIn 0.7s 0.3s both;
+  }
+  .logo-glow { position: absolute; inset: 0; border-radius: 50%; filter: blur(32px); transform: scale(1.5); background: hsl(270 60% 52% / 0.12); animation: pulse 3s ease-in-out infinite; }
+  .logo-ring { position: absolute; inset: -4px; border-radius: 50%; filter: blur(8px); background: linear-gradient(135deg, hsl(270 60% 52% / 0.2), transparent, hsl(42 92% 45% / 0.15)); }
+  .logo-circle {
+    position: relative; width: 64px; height: 64px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px); box-shadow: 0 0 30px -8px hsl(270 60% 52% / 0.2);
+  }
+  .logo-circle img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+
+  /* Success icon */
+  .success-icon {
+    width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, hsl(150 60% 40% / 0.15), hsl(150 60% 40% / 0.05));
+    border: 1px solid hsl(150 60% 40% / 0.25); box-shadow: 0 0 40px -10px hsl(150 60% 40% / 0.2);
+    margin-bottom: 1.5rem; animation: scaleIn 0.6s 0.5s both;
+  }
+  .success-icon svg { width: 40px; height: 40px; color: hsl(150 60% 55%); }
+
+  /* Title */
+  h1 {
+    font-size: 1.25rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
+    color: rgba(255,255,255,0.9); margin-bottom: 0.5rem; text-align: center;
+    animation: fadeSlideUp 0.6s 0.7s both;
+  }
+  .divider {
+    height: 1px; width: 64px; margin: 0 auto 1.5rem;
+    background: linear-gradient(90deg, transparent, hsl(150 60% 40% / 0.5), transparent);
+    animation: fadeScaleX 0.6s 0.9s both;
+  }
+
+  /* Message */
+  .message {
+    font-size: 0.875rem; text-align: center; line-height: 1.7; color: rgba(255,255,255,0.6);
+    max-width: 360px; margin-bottom: 2rem;
+    animation: fadeSlideUp 0.6s 1.0s both;
+  }
+
+  /* Info cards */
+  .cards { width: 100%; display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+  .card {
+    display: flex; align-items: flex-start; gap: 1rem; border-radius: 10px; padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
+    backdrop-filter: blur(4px);
+  }
+  .card:nth-child(1) { animation: fadeSlideRight 0.5s 1.2s both; }
+  .card:nth-child(2) { animation: fadeSlideRight 0.5s 1.35s both; }
+  .card-icon {
+    width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 2px;
+    background: hsl(270 60% 52% / 0.1); border: 1px solid hsl(270 60% 52% / 0.2);
+  }
+  .card-icon svg { width: 20px; height: 20px; color: hsl(270 60% 65%); }
+  .card-title { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+  .card-desc { font-size: 0.875rem; line-height: 1.5; color: rgba(255,255,255,0.4); }
+
+  /* Home button */
+  .home-btn {
+    background: none; cursor: pointer; padding: 10px 24px; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase; border-radius: 9999px;
+    color: rgba(255,255,255,0.35); border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.5s; animation: fadeIn 0.5s 1.5s both;
+  }
+  .home-btn:hover { border-color: hsl(270 60% 52% / 0.4); color: rgba(255,255,255,0.8); box-shadow: 0 0 20px -5px hsl(270 60% 52% / 0.2); }
+
+  /* Animations */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeSlideLeft { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes fadeSlideRight { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+  @keyframes fadeScaleX { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+
+  @media (min-width: 640px) {
+    body { padding: 3rem 1rem; }
+    .logo-circle { width: 80px; height: 80px; }
+    .logo-circle img { width: 64px; height: 64px; }
+    .success-icon { width: 96px; height: 96px; }
+    .success-icon svg { width: 48px; height: 48px; }
+    h1 { font-size: 1.5rem; }
+    .message { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-bg"></div>
+
+  <div class="container">
+
+    <div class="logo-wrap">
+      <div class="logo-glow"></div>
+      <div class="logo-ring"></div>
+      <div class="logo-circle">
+        <img src="kalki_logo.jpg" alt="Kalki Corporation" />
+      </div>
+    </div>
+
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+
+    <h1>Thank You!</h1>
+    <div class="divider"></div>
+
+    <p class="message">Your consultation has been successfully booked. Our instructor will shortly connect with you on your provided WhatsApp number with a Zoom meeting link.</p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div>
+          <div class="card-title">WhatsApp</div>
+          <div class="card-desc">You'll receive a message on your provided WhatsApp number</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        </div>
+        <div>
+          <div class="card-title">Zoom Meeting</div>
+          <div class="card-desc">A Zoom meeting link will be shared for your consultation</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="home-btn" onclick="location.href='index.html'">Back to Home</button>
+  </div>
+</body>
+</html>

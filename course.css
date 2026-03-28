@@ -142,7 +142,6 @@
 }
 .enroll > div{    display: flex;
     gap: 10px;}
-.enroll .btn.outline2{display: none;}
 
 
 .hero{      gap: 43px;
@@ -1221,26 +1220,20 @@ aside.fixed {padding-top: 97px;}
 
 
 /* aside .download{    margin-top: 55px;} */
-.download > div{}
-.download > div h2{}
-.download > div p,.enquiry p{        font-size: 13px;
+.enquiry p{        font-size: 13px;
     padding: 7px 0 0 0;
     color: #ffffff82;}
-.download > div button{}
-.download > div button i{}
-.download > div button span{}
 
-
-.enquiry,.download{  width: 280px;
+.enquiry{  width: 280px;
     border: 1px solid #8c8c8c1f;
     border-radius: 15px;
     padding: 25px;
     display: grid;
     gap: 16px;}
-.enquiry h2,.download > div h2{     font-size: 16px;
+.enquiry h2{     font-size: 16px;
     display: flex;
     gap: 7px;}
-.enquiry h2 i,.download > div h2 i{font-weight: normal;}
+.enquiry h2 i{font-weight: normal;}
 /* .enquiry p{font-size: 14px;} */
 .enquiry form{    display: flex;
     flex-direction: column;
@@ -1300,7 +1293,6 @@ aside.fixed {padding-top: 97px;}
     height: 300px;
     border-radius: 16px;
 }
-.enroll .btn.outline2{display: flex;}
 .enroll > div {
     flex: 1;
 }
