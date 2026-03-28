@@ -1103,6 +1103,10 @@ max-height: 900px; /* large enough */
     align-items: center;}
 .feedbacks ul li > div > div > div{}
 .feedbacks ul li > div > div span{      color: #fff;}
+.feedbacks ul li > div > div span a{    margin-left: 3px;}
+.feedbacks ul li > div > div span a i{    color: #0f75f7;
+    background: #fff;
+    border-radius: 3px;}
 .feedbacks ul li > div > div label{        font-size: 12px;
     color: #ffffff66;
     display: block;

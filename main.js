@@ -100,7 +100,7 @@ PI.Utils = {
             }
         });
     }, {
-        threshold: 0.15 // trigger when 15% visible
+        threshold: 0.12 // trigger when 12% visible
     });
     elements.forEach(el => observer.observe(el));
     },
