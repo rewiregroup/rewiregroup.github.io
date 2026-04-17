@@ -173,3 +173,15 @@
 .i_close1:before {
   content: "\e928";
 }
+
+.i_timer:before {
+  content: "\e927";
+}
+
+.i_calendar:before {
+  content: "\e929";
+}
+
+.i_live:before {
+  content: "\e92a";
+}
