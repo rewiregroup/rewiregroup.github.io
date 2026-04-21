@@ -1285,6 +1285,10 @@ aside.fixed {padding-top: 97px;}
 
 
 @media (max-width: 1120px) {
+    
+/* Module 0 page hide enquiry form */
+.rightPanel.module-0{display: none;}
+
 .cover {
     padding: 0;}
 
