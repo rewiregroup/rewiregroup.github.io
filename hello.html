@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kalki Corporation — Links</title>
+<link rel="icon" type="image/x-icon" href="favicon.png">
+<meta name="description" content="Kalki Corporation — VBSI (Value Based Swing Investing). All our official links in one place." />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Carlito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0a0a0f;
+    color: rgba(255,255,255,0.9);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 16px 56px;
+    position: relative;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Ambient orbs */
+  .orb { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+  .orb-1 { top: 50%; left: 50%; width: 600px; height: 600px; transform: translate(-50%, -50%);
+    background: hsl(270, 60%, 52%, 0.12); filter: blur(120px); }
+  .orb-2 { top: 25%; left: 25%; width: 300px; height: 300px;
+    background: hsl(42, 92%, 45%, 0.08); filter: blur(100px); }
+  .orb-3 { bottom: 25%; right: 25%; width: 250px; height: 250px;
+    background: hsl(270, 60%, 52%, 0.06); filter: blur(80px); }
+
+  /* Grid overlay */
+  .grid-overlay {
+    position: absolute; inset: 0; pointer-events: none; opacity: 0.04; z-index: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .container {
+    position: relative; z-index: 10;
+    width: 100%; max-width: 460px;
+    display: flex; flex-direction: column; align-items: center;
+    animation: fadeIn 1s ease-out both;
+  }
+
+  /* Logo */
+  .logo-wrap { position: relative; margin-bottom: 24px; animation: scaleIn .7s cubic-bezier(.16,1,.3,1) .2s both; }
+  .logo-glow {
+    position: absolute; inset: 0; border-radius: 50%;
+    filter: blur(32px); transform: scale(1.5);
+    background: hsl(270, 60%, 52%, 0.15);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .logo-ring {
+    position: absolute; inset: -4px; border-radius: 50%;
+    filter: blur(8px);
+    background: linear-gradient(135deg, hsl(270, 60%, 52%, 0.25), transparent, hsl(42, 92%, 45%, 0.18));
+  }
+  .logo {
+    position: relative;
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 40px -8px hsl(270, 60%, 52%, 0.3);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .logo img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; }
+
+  /* Brand */
+  .brand {
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: rgba(255,255,255,0.95);
+    text-align: center;
+    animation: slideUp .6s ease-out .45s both;
+  }
+  .tagline {
+    font-size: 11px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 6px;
+    animation: slideUp .6s ease-out .55s both;
+  }
+
+  .divider {
+    width: 80px; height: 1px;
+    margin: 20px 0;
+    background: linear-gradient(90deg, transparent, hsl(270, 60%, 60%, 0.5), transparent);
+    animation: expand .6s ease-out .7s both;
+  }
+
+  /* Secondary headline */
+  .headline {
+    display: flex; flex-direction: column; align-items: center;
+    margin-bottom: 32px;
+    animation: slideUp .6s ease-out .8s both;
+  }
+  .headline h2 {
+    font-size: 20px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: hsl(42, 92%, 60%);
+  }
+  .headline p {
+    font-size: 13px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-top: 6px;
+  }
+
+  /* Links list */
+  .links { width: 100%; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+  .link-card {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: slideUp .5s ease-out forwards;
+  }
+  .link-card:nth-child(1) { animation-delay: 1.05s; }
+  .link-card:nth-child(2) { animation-delay: 1.15s; }
+  .link-card:nth-child(3) { animation-delay: 1.25s; }
+  .link-card:nth-child(4) { animation-delay: 1.35s; }
+  .link-card:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: hsl(270, 60%, 60%, 0.4);
+    box-shadow: 0 0 30px -10px hsl(270, 60%, 52%, 0.5);
+    transform: translateY(-2px);
+  }
+  .link-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: hsl(270, 60%, 52%, 0.12);
+    border: 1px solid hsl(270, 60%, 52%, 0.25);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: hsl(270, 60%, 70%);
+  }
+  .link-icon svg { width: 20px; height: 20px; }
+  .link-text { flex: 1; min-width: 0; }
+  .link-title {
+    font-size: 14px; font-weight: 600;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: 0.02em;
+  }
+  .link-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+  }
+  .arrow {
+    width: 16px; height: 16px;
+    color: rgba(255,255,255,0.4);
+    transition: transform 0.5s ease;
+    flex-shrink: 0;
+  }
+  .link-card:hover .arrow { transform: translateX(4px); }
+
+  /* CTA */
+  .cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.95);
+    background: linear-gradient(135deg, hsl(270, 60%, 52%), hsl(270, 60%, 42%));
+    border: 1px solid hsl(270, 60%, 60%, 0.4);
+    border-radius: 999px;
+    box-shadow: 0 0 30px -8px hsl(270, 60%, 52%, 0.5);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    animation: slideUp .6s ease-out 1.55s both;
+  }
+  .cta:hover {
+    box-shadow: 0 0 45px -5px hsl(270, 60%, 52%, 0.7);
+    transform: translateY(-2px);
+  }
+  .cta svg { width: 16px; height: 16px; transition: transform 0.5s ease; }
+  .cta:hover svg { transform: translateX(4px); }
+
+  .footer {
+    margin-top: 40px;
+    font-size: 10px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    animation: fadeIn .6s ease-out 1.8s both;
+  }
+
+  /* Animations */
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+  @keyframes expand { from { opacity: 0; transform: scaleX(0); } to { opacity: 1; transform: scaleX(1); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    body { padding: 28px 14px 40px; }
+    .logo { width: 84px; height: 84px; }
+    .logo img { width: 70px; height: 70px; }
+    .brand { font-size: 14px; letter-spacing: 0.24em; }
+    .tagline { font-size: 10px; }
+    .headline h2 { font-size: 18px; }
+    .headline p { font-size: 11px; }
+    .link-card { padding: 14px 16px; gap: 12px; }
+    .link-icon { width: 40px; height: 40px; }
+    .link-icon svg { width: 18px; height: 18px; }
+    .link-title { font-size: 13px; }
+    .link-desc { font-size: 11px; }
+    .cta { padding: 12px 24px; font-size: 12px; letter-spacing: 0.15em; }
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-25M11BG28Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-25M11BG28Z');
+    </script>
+
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wezdlojds7");
+</script>
+</head>
+<body>
+
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="container">
+
+    <div class="logo-wrap">
+      <div class="logo-glow"></div>
+      <div class="logo-ring"></div>
+      <div class="logo">
+        <img src="kalki_logo.jpg" alt="Kalki Corporation" />
+      </div>
+    </div>
+
+    <h1 class="brand">Kalki Corporation</h1>
+    <p class="tagline">Education · Incubation</p>
+
+    <div class="divider"></div>
+
+    <div class="headline">
+      <h2>VBSI</h2>
+      <p>Value Based Swing Investing</p>
+    </div>
+
+    <div class="links">
+
+      <a href="https://console.zerodha.com/verified/8df38bf1" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Verified P&L - 360 Days</div>
+          <div class="link-desc">With 15 Lakh Capital</div>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <a href="https://www.instagram.com/kalkicorp/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">Instagram</div>
+          <div class="link-desc">Follow our daily insights</div>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <a href="https://www.linkedin.com/company/kalkicorp/" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">LinkedIn</div>
+          <div class="link-desc">Connect professionally</div>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <a href="https://www.youtube.com/@kalkicorp" target="_blank" rel="noopener noreferrer" class="link-card">
+        <div class="link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+        </div>
+        <div class="link-text">
+          <div class="link-title">YouTube</div>
+          <div class="link-desc">Watch in-depth tutorials</div>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <a href="#" id="ctaBtn" class="cta">
+      Know More About VBSI
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+
+    <p class="footer">© Kalki Corporation</p>
+
+  </div>
+</body>
+</html>
