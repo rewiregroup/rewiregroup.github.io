@@ -1042,7 +1042,7 @@ box-shadow: 0 2px 4px #0000005e;}
 
 
 @media (max-width: 1160px) {
-  .box {padding: 0 20px; }
+ 
   .headline h1,.about_title h2,.modules-title h2,.admission_hero h5,.faq > div h5 {
             line-height: 90px;
         font-size: 60px;}
@@ -1190,7 +1190,7 @@ box-shadow: none;
 }
 .curriculum > ul > li > div > div img {
     position: relative;
-    top: 0;
+    top: 0;left: 0;
     right: 0;
             width: 100%;
 }
@@ -1271,7 +1271,7 @@ transform: translateX(-53px) translateY(10px);
 
 
 @media (max-width: 816px) {
-    .headline h1,.about_title h2 {
+   .headline h1,.about_title h2,.modules-title h2,.admission_hero h5,.faq > div h5  {
         line-height: 44px;
         font-size: 30px;
     }
@@ -1332,4 +1332,157 @@ transform: translateX(-53px) translateY(10px);
     border-radius: 10px;
 }
 
+.about {
+    margin-top: 0;}
+
+.get-listed a span{display: none;}
+.testimonials li {
+    height: 290px;}
+.about_title h3 {
+    font-size: 16px;
+}
+.about_title p {
+    margin: 10px auto 0 auto;
+    font-size: 14px;
+}
+.meaning-c > div > span {left: 42px;}
+.outcomes > div > ul li {text-align: left;}
+    .meaning-c > div:first-child {
+        width: 95px;
+    }
+
+.about,.modules,.curriculum,.admission,.faq {
+    padding: 0 5px;
+}
+.swing-trading > div:first-child{
+        width: 73px !important;
+}
+.modules-title ul {
+                 grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+        gap: 10px;
+        max-width: 258px;
+        padding: 0;
+        text-align: left;
+        margin: 0 auto;
+}
+    .modules {
+        margin-top: 36px;
+    }
+    .modules-title ul li {
+    font-size: 11px;
+    gap: 5px;
+}
+.modules-title ul li i {
+    font-size: 18px;
+}
+.modules-title p {
+        font-size: 14px;
+    }
+    .curriculum > ul,.steps {
+        display: block;
+    }
+    .curriculum > ul > li > div > div {
+        padding: 10px;
+    }
+.curriculum > ul > li > div > div h2 {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 38px;
+}
+.curriculum > ul > li > div > div > p {
+    font-size: 16px;}
+.curriculum > ul > li > div > div > span > span {padding: 6px 10px;}
+.curriculum > ul > li > div > div > span label {
+    font-size: 16px;
+}
+    .curriculum > ul > li > div > div > ul {
+        gap: 10px;
+    }
+    .curriculum > ul > li > div > div > ul li p {
+    font-size: 13px;
+    line-height: 20px;
+}
+.curriculum > ul > li > div > div > ul li {
+    gap: 7px;
+}
+.curriculum > ul > li > div > div em {
+    line-height: 18px;
+    display: block;
+    text-align: center;
+}
+.curriculum > ul > li {
+    margin-bottom: 16px;
+}
+.curriculum .module7 > div > div > ul {
+    grid-template-columns: auto;
+    gap: 10px;
+    margin: 6px auto 16px auto;
+}
+.curriculum .module7 > div > div {
+    max-width: 100%;
+    text-align: left;
+}
+.curriculum .module7 > div > div > span {
+    justify-content: left;
+}
+.admission {
+    margin-top: 44px;
+}
+.admission_hero p {
+    font-size: 14px;}
+.steps > li > div > div:first-child{display: none;}
+.steps{    margin: 16px 0 20px 0;}
+    .steps > li {
+        margin-bottom: 16px;
+    }
+        .admission_note p {
+        font-size: 12px;
+    }
+        .admission_note span {
+        height: 26px;
+        width: 112px;
+        background-size: 240px;
+        background-position: -2px -185px;
+    }
+       .admission_note {
+        gap: 10px;
+        padding: 10px;
+    }
+        .faq {
+        margin: 36px 0;
+    }
+.faq li button div p {
+    text-align: left;
+}
+.faq li > div p {
+    font-size: 13px;
+}
+.footer_links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
+    max-width: 250px;
+    margin: 16px auto;
+    text-align: left;}
+.cta_info{display: none;}
+.curriculum > ul > li::before, .curriculum > ul > li::after {
+    width: 300px;
+    height: 330px;
+    position: absolute;
+    left: 140px;
+}
+.curriculum .module7::after, .curriculum .module7::before {
+    height: 300px;
+    width: 300px;
+}
+    .faq ul::before {
+        transform: translateX(-116px);
+    }
+        .faq ul::after {
+        transform: translateX(-127px) translateY(231px);
+    }
+        .footer::before {
+        transform: translateX(-336px) translateX(215px);
+    }
+    .footer::before, .footer::after {
+    width: 300px;}
 }
