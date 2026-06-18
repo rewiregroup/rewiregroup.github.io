@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalki Corporation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Carlito:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  
+  
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-25M11BG28Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-25M11BG28Z');
+    </script>
+
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wezdlojds7");
+</script>
+
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Carlito', Calibri, sans-serif;
+      background: #0a0a0f;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ambient glow orbs */
+    .orb { position: absolute; border-radius: 50%; pointer-events: none; }
+    .orb-1 { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%); background: hsl(270 60% 52% / 0.12); filter: blur(120px); }
+    .orb-2 { width: 300px; height: 300px; top: 33%; left: 33%; background: hsl(42 92% 45% / 0.08); filter: blur(100px); }
+    .orb-3 { width: 250px; height: 250px; bottom: 33%; right: 33%; background: hsl(270 60% 52% / 0.06); filter: blur(80px); }
+
+    /* Grid pattern */
+    .grid-pattern {
+      position: absolute; inset: 0; pointer-events: none; opacity: 0.04;
+      background-image: linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    /* Main content */
+    .content {
+      position: relative; z-index: 10;
+      display: flex; flex-direction: column; align-items: center; gap: 2rem;
+      opacity: 0; animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    /* Logo */
+    .logo-wrap {
+      position: relative; cursor: pointer;
+      opacity: 0; transform: scale(0.8);
+      animation: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    }
+    .logo-glow {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: hsl(270 60% 52% / 0.15);
+      filter: blur(40px); transform: scale(1.5);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .logo-ring {
+      position: absolute; inset: -4px; border-radius: 50%;
+      background: linear-gradient(135deg, hsl(270 60% 52% / 0.25), transparent, hsl(42 92% 45% / 0.2));
+      filter: blur(12px);
+    }
+    .logo-circle {
+      position: relative; width: 144px; height: 144px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 40px -10px hsl(270 60% 52% / 0.25);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-circle img { width: 112px; height: 112px; border-radius: 50%; object-fit: cover; }
+
+    /* Company name */
+    .company-name {
+      text-align: center;
+      opacity: 0; transform: translateY(16px);
+      animation: slideUp 0.7s ease-out 0.6s forwards;
+    }
+    .company-name h1 {
+      font-size: 1.875rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+    }
+    .divider {
+      margin: 4px auto 0; height: 1px; width: 96px;
+      background: linear-gradient(90deg, transparent, hsl(270 60% 52% / 0.5), transparent);
+    }
+
+    /* Tags */
+    .tags {
+      display: flex; align-items: center; gap: 1rem;
+      opacity: 0; transform: translateY(12px);
+      animation: slideUp 0.7s ease-out 0.9s forwards;
+    }
+    .tag-dot { width: 4px; height: 4px; border-radius: 50%; background: hsl(270 60% 52% / 0.5); }
+    .tag {
+      font-size: 0.9rem; letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 500;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* Enter button */
+    .enter-btn {
+      margin-top: 2rem; padding: 10px 24px;
+      font-size: 0.75rem; letter-spacing: 0.15em;
+      text-transform: uppercase; font-family: inherit;
+      color: rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 9999px; background: transparent;
+      cursor: pointer; transition: all 0.5s;
+      opacity: 0; animation: fadeIn 0.7s ease-out 1.3s forwards;
+    }
+    .enter-btn:hover {
+      border-color: hsl(270 60% 52% / 0.4);
+      color: rgba(255,255,255,0.8);
+      box-shadow: 0 0 20px -5px hsl(270 60% 52% / 0.2);
+    }
+
+    /* Animations */
+    @keyframes fadeIn { to { opacity: 1; } }
+    @keyframes scaleIn { to { opacity: 1; transform: scale(1); } }
+    @keyframes slideUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+    @media (max-width: 640px) {
+      .logo-circle { width: 112px; height: 112px; }
+      .logo-circle img { width: 80px; height: 80px; }
+      .company-name h1 { font-size: 1.5rem; }
+    }
+  </style>
+
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '27038592755748841');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=27038592755748841&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-pattern"></div>
+
+  <div class="content">
+    <div class="logo-wrap">
+      <div class="logo-glow"></div>
+      <div class="logo-ring"></div>
+      <div class="logo-circle">
+        <img src="kalki_logo.jpg" alt="Kalki Corporation" />
+      </div>
+    </div>
+
+    <div class="company-name">
+      <h1>Kalki Corporation</h1>
+      <div class="divider"></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Education</span>
+      <span class="tag-dot"></span>
+      <span class="tag">Incubation</span>
+    </div>
+
+    <button class="enter-btn" onclick="window.location.href='vbsi.html'">VBSI →</button>
+  </div>
+</body>
+</html>
