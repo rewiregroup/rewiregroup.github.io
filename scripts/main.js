@@ -9,6 +9,7 @@ PI = window.PI || {
 PI.Utils = {
     init: function () {
         PI.Utils.animateOnScroll();
+        PI.Utils.handleVideoPlayback();
         PI.Utils.initStickyCTA();
         PI.Utils.initFAQ();
     },
@@ -39,6 +40,43 @@ PI.Utils = {
     elements.forEach(el => observer.observe(el));
     },
 
+    handleVideoPlayback: function () {
+    const playButtons = document.querySelectorAll('.play-btn');
+
+    playButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const wrapper = this.parentElement;
+            
+            // --- NEW: Testimonial ke parent <li> mein 'active' class add karein ---
+            const parentLi = this.closest('li');
+            if (parentLi) {
+                parentLi.classList.add('active');
+            }
+            // -------------------------------------------------------------------
+
+            const videoId = this.getAttribute('data-url');
+            const isShort = this.getAttribute('data-type') === 'short';
+
+            // Minimalist player parameters
+            const params = "autoplay=1&rel=0&modestbranding=1&controls=1&showinfo=0&iv_load_policy=3";
+            const src = `https://www.youtube.com/embed/${videoId}?${params}&origin=${window.location.origin}`;
+
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', src);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', 'true');
+            iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+            
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+
+            // Content replace
+            wrapper.innerHTML = ''; 
+            wrapper.appendChild(iframe);
+        });
+    });
+},
     // Sticky CTA Logic
     initStickyCTA: function () {
         const ctaBanner = document.querySelector('.cta');
