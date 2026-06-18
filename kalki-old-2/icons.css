@@ -1,0 +1,191 @@
+@font-face {
+  font-family: 'PI-icons';
+  src: url('font/icomoon.woff') format('woff');
+}
+
+[class^="i_"], [class*=" i_"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'PI-icons' !important;
+  font-style: normal;
+  vertical-align: -1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i_star-filled:before {
+  content: "\e900";
+}
+.i_star:before {
+  content: "\e901";
+}
+
+.i_arrow-right:before {
+  content: "\e903";
+}
+.i_arrow:before {
+  content: "\e924";
+}
+
+.i_student:before {
+  content: "\e941";
+}
+
+.i_desp:before {
+  content: "\e90c";
+}
+
+.i_problem:before {
+  content: "\e902";
+}
+
+
+.i_college:before {
+  content: "\e904";
+}
+
+.i_cash_control:before {
+  content: "\e905";
+}
+
+.i_investor:before {
+  content: "\e906";
+}
+
+.i_trader:before {
+  content: "\e907";
+}
+
+.i_business:before {
+  content: "\e908";
+}
+
+.i_cancel:before {
+  content: "\e909";
+}
+
+.i_close:before {
+  content: "\e90a";
+}
+
+.i_kalki:before {
+  content: "\e90b";
+}
+
+.i_instagram:before {
+  content: "\e90d";
+}
+
+.i_linkedin:before {
+  content: "\e90e";
+}
+
+.i_check:before {
+  content: "\e90f";
+}
+
+.i_goal:before {
+  content: "\e910";
+}
+
+.i_chart:before {
+  content: "\e911";
+}
+
+.i_tree:before {
+  content: "\e912";
+}
+
+.i_arrow_long:before {
+  content: "\e913";
+}
+.i_tick:before {
+  content: "\e914";
+}
+
+.i_check_outline:before {
+  content: "\e915";
+}
+
+.i_users:before {
+  content: "\e916";
+}
+
+.i_refund:before {
+  content: "\e917";
+}
+
+.i_star-half:before {
+  content: "\e918";
+}
+
+.i_whatsapp:before {
+  content: "\e919";
+}
+
+.i_email:before {
+  content: "\e91a";
+}
+
+.i_note:before {
+  content: "\e91b";
+}
+
+.i_disclaimer:before {
+  content: "\e91c";
+}
+
+.i_download:before {
+  content: "\e91d";
+}
+
+.i_decipline:before {
+  content: "\e91e";
+}
+
+.i_cash2:before {
+  content: "\e91f";
+}
+
+.i_chart2:before {
+  content: "\e920";
+}
+
+.i_target:before {
+  content: "\e921";
+}
+
+.i_quote:before {
+  content: "\e922";
+}
+
+.i_lens:before {
+  content: "\e923";
+}
+
+.i_file:before {
+  content: "\e925";
+}
+
+.i_menu:before {
+  content: "\e926";
+}
+
+.i_close1:before {
+  content: "\e928";
+}
+
+.i_timer:before {
+  content: "\e927";
+}
+
+.i_calendar:before {
+  content: "\e929";
+}
+
+.i_live:before {
+  content: "\e92a";
+}
+
+.i_play:before {
+  content: "\e92b";
+}
