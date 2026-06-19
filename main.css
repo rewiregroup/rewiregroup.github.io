@@ -869,7 +869,7 @@ display: none;
 .faq li button div p{    font-size: 15px;
     font-weight: bold;}
 .faq li > div{      text-align: left;
-    font-size: 14px;padding: 0 16px 0 56px;
+    font-size: 14px;padding: 0 16px;
     border-top: 1px solid #eee;}
 .faq li > div p{}
 .faq ul::before, .faq ul::after {
@@ -901,7 +901,7 @@ display: none;
 
 /* Jab open ho */
 .faq-content.is-open {
-        padding: 16px 16px 16px 56px;max-height: 250px;
+        padding: 16px;max-height: 250px;
 
 }
 
@@ -966,7 +966,7 @@ box-shadow: 0 2px 4px #0000005e;}
 
 
 
-.footer{   
+.footer{       z-index: 1000;
     position: relative;
     text-align: center;    padding: 40px 0 140px 0;}
 .footer::before, .footer::after {
@@ -1176,14 +1176,7 @@ z-index: 2;padding: 0!important
     padding: 0;}
 
 .modules-title ul {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-align-items: center;
-gap: 18px;
-background: transparent;
-margin: 0 auto;
-max-width: 675px;
-box-shadow: none;
+
 }
 .curriculum > ul {
     margin-top: 20px;
@@ -1191,7 +1184,7 @@ box-shadow: none;
 
 .curriculum > ul > li > div > div {
     background: transparent;    max-width: 100%;
-    padding: 20px;
+    padding: 30px;
 }
 .curriculum > ul > li > div > div img {
     position: relative;
@@ -1334,7 +1327,7 @@ transform: translateX(-53px) translateY(10px);
     .testimonials li:last-child{display: none;}
     .testimonials li > div {
         width: 142px;
-        height: 241px;
+        height: 253px;
         border-radius: 10px;
     }
     .testimonials li > div:after {
@@ -1342,11 +1335,11 @@ transform: translateX(-53px) translateY(10px);
 }
 
 .about {
-    margin-top: 0;}
+    margin-top: 50px;}
 
 .get-listed a span{display: none;}
 .testimonials li {
-    height: 290px;}
+    height: 253px;}
 .about_title h3 {
     font-size: 16px;
 }
@@ -1366,33 +1359,18 @@ transform: translateX(-53px) translateY(10px);
 .swing-trading > div:first-child{
         width: 73px !important;
 }
-.modules-title ul {
-                 grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
-        gap: 10px;
-        max-width: 258px;
-        padding: 0;
-        text-align: left;
-        margin: 0 auto;
-}
+
     .modules {
         margin-top: 36px;
     }
-    .modules-title ul li {
-    font-size: 11px;
-    gap: 5px;
-}
-.modules-title ul li i {
-    font-size: 18px;
-}
+ 
 .modules-title p {
         font-size: 14px;
     }
     .curriculum > ul,.steps {
         display: block;
     }
-    .curriculum > ul > li > div > div {
-        padding: 10px;
-    }
+
 .curriculum > ul > li > div > div h2 {
     font-size: 30px;
     font-weight: bold;
@@ -1448,14 +1426,15 @@ transform: translateX(-53px) translateY(10px);
         font-size: 12px;
     }
         .admission_note span {
-        height: 26px;
-        width: 112px;
+                      height: 26px;
+        width: 25px;
         background-size: 240px;
         background-position: -2px -185px;
+        flex-shrink: 0;
     }
        .admission_note {
-        gap: 10px;
-        padding: 10px;
+                gap: 20px;
+        padding: 10px 10px 10px 20px;
     }
         .faq {
         margin: 36px 0;
@@ -1466,12 +1445,6 @@ transform: translateX(-53px) translateY(10px);
 .faq li > div p {
     font-size: 13px;
 }
-.footer_links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(116px, 1fr));
-    max-width: 250px;
-    margin: 16px auto;
-    text-align: left;}
 .cta_info{display: none;}
 .curriculum > ul > li::before, .curriculum > ul > li::after {
     width: 300px;
@@ -1486,7 +1459,7 @@ transform: translateX(-53px) translateY(10px);
     .faq ul::before {
         transform: translateX(-116px);
     }
-        .faq ul::after {
+        .faq ul::after {    height: 214px;
         transform: translateX(-127px) translateY(231px);
     }
         .footer::before {
@@ -1494,6 +1467,18 @@ transform: translateX(-53px) translateY(10px);
     }
     .footer::before, .footer::after {
     width: 300px;}
+
+    .cta_action {
+    width: 100%;
+}
+.cta_action a{justify-content: center;}
+.cta{    right: 10px;left: 10px;}
+.steps > li > div {
+    display: block;
+}
+    .steps > li {
+        padding: 30px 20px 22px 20px;
+    }
 }
 
 
@@ -1530,5 +1515,30 @@ transform: translateX(-53px) translateY(10px);
         height: 311px;
         border-radius: 10px;
     }
-  
+    .logo img {
+    height: 26px;
+}
+  .logo span {
+    font-size: 14px;
+}
+    .intro > div > h4, .intro > div:last-child h4 {
+        text-align: center;
+    }
+    .modules-title ul {
+    gap: 8px;        padding: 10px 16px;
+}
+.modules-title ul li {
+    font-size: 12px;
+    gap: 5px;
+}
+.modules-title ul li i {
+    font-size: 14px;
+}
+.modules-title ul li {
+        font-size: 12px;
+        gap: 4px;
+    }
+    .footer {
+    padding: 40px 20px 140px 20px;
+}
 }
