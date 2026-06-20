@@ -1493,7 +1493,11 @@ transform: translateX(-53px) translateY(10px);
 
 
 
-@media (max-width: 400px) {
+@media (max-width: 425px) {
+    .curriculum > ul > li > div > div img {
+        width: 128%;
+        margin-left: -37px;
+}
   .headline {
     gap: 6px;
 }
